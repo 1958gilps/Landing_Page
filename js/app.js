@@ -13,45 +13,37 @@
  * 
 */
 
-/**
- * Define Global Variables
- * 
-*/
 
+ // Define Global Variables 
+ const navHeading = document.querySelector('#navbar__list');
+ const navSection = document.getElementsByTagName('section');
+ const myFragment = document.createDocumentFragment();
+ 
+ // helper function to determine if the element is in the window
 
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
+ 
+ // build the nav
+ for (let i = 0; i < navSection.length; i++) {
+    const eachSection = navSection[i];
 
+    const navTop = (eachSection.querySelector('h2')).innerText
+    const anchor = document.createElement('a')
+    anchor.href = `#${eachSection.id}`;
+    anchor.innerText = navTop;
 
+    const newNav = document.createElement('li');
+    newNav.appendChild(anchor)
+    navHeading.appendChild(newNav)
 
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
+}
+ 
+// Add class 'active' to section if the section is in the window, remove it when the section is out of the window
 
-// build the nav
+ // object.addEventListener("resize", myScript)
+ 
+ // Scroll to anchor ID using scrollTO event
 
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
-
+ 
+ 
+ //reload the page when the viewport is resized so that the getBoundingClientRect can be calculated properly
+ 
