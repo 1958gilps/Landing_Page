@@ -13,37 +13,58 @@
  * 
 */
 
+/**
+ * Define Global Variables
+ * 
+*/
+const navList = document.querySelector('#navbar__list');
+const navSection = document.getElementsByTagName('section');
+//const myFragment = document.createDocumentFragment();
 
- // Define Global Variables 
- const navHeading = document.querySelector('#navbar__list');
- const navSection = document.getElementsByTagName('section');
- const myFragment = document.createDocumentFragment();
- 
- // helper function to determine if the element is in the window
+/**
+ * End Global Variables
+ * Start Helper Functions
+ * 
+*/
 
- 
- // build the nav
- for (let i = 0; i < navSection.length; i++) {
+
+
+/**
+ * End Helper Functions
+ * Begin Main Functions
+ * 
+*/
+
+// build the nav
+for (let i = 0; i < navSection.length; i++) {
     const eachSection = navSection[i];
-
-    const navTop = (eachSection.querySelector('h2')).innerText
-    const anchor = document.createElement('a')
-    anchor.href = `#${eachSection.id}`;
-    anchor.innerText = navTop;
-
-    const newNav = document.createElement('li');
-    newNav.appendChild(anchor)
-    navHeading.appendChild(newNav)
-
+    const linkName = (eachSection.querySelector('h2')).innerText
+    const linkAnchor = document.createElement('a')
+    
+    linkAnchor.href = `#${eachSection.id}`;
+    linkAnchor.innerText = linkName;
+    
+    const newList = document.createElement('li');
+    
+    newList.appendChild(linkAnchor)
+    navList.appendChild(newList)
 }
- 
-// Add class 'active' to section if the section is in the window, remove it when the section is out of the window
+// Add class 'active' to section when near top of viewport
 
- // object.addEventListener("resize", myScript)
- 
- // Scroll to anchor ID using scrollTO event
 
- 
- 
- //reload the page when the viewport is resized so that the getBoundingClientRect can be calculated properly
- 
+// Scroll to anchor ID using scrollTO event
+
+
+
+
+/**
+ * End Main Functions
+ * Begin Events
+ * 
+*/
+
+// Build menu 
+
+// Scroll to section on link click
+
+// Set sections as active
