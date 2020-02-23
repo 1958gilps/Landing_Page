@@ -38,11 +38,11 @@ const navSection = document.getElementsByTagName('section');
 // build the nav
 for (let i = 0; i < navSection.length; i++) {
     const eachSection = navSection[i];
-    const linkName = (eachSection.querySelector('h2')).innerText
+    const linkName = (eachSection.querySelector('h2')).textContent;
     const linkAnchor = document.createElement('a')
     
     linkAnchor.href = `#${eachSection.id}`;
-    linkAnchor.innerText = linkName;
+    linkAnchor.textContent = linkName;
     
     const newList = document.createElement('li');
     
@@ -53,7 +53,6 @@ for (let i = 0; i < navSection.length; i++) {
 
 
 // Scroll to anchor ID using scrollTO event
-
 
 
 
