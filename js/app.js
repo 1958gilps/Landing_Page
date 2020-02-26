@@ -86,3 +86,33 @@ function addScroll(event){
 // Scroll to section on link click
 
 // Set sections as active
+
+function elementInViewport(element){
+	//if element is currently on screen, return true
+  	//if it isn't, return false
+  	const rect = element.getBoundingClientRect(),
+          viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+    return !(rect.bottom < 0 || rect.top > viewHeight);
+}
+
+function sectionsInViewport(){
+  	//get all sections
+  	const sections = document.querySelectorAll("section");
+	//loop through each section, one at a time
+  	for (let i=0; i<sections.length; i++){
+      	//get current section from loop
+      	let section = sections[i];
+      	//is section in viewport?
+      	if (elementInViewport(section)){
+            //section is in viewport, add "active" class to it (using classlist)
+          	section.classList.add("inViewport");
+        }
+      	else {
+            //section is NOT in viewport, remove "active" class to it (using classlist)
+          	section.classList.remove("inViewport");
+        }
+    }
+}
+
+//listen for scroll events and call sectionsInViewport function
+window.addEventListener("scroll", sectionsInViewport);
