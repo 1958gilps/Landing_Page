@@ -58,6 +58,8 @@ main {
 section {
     position: relative;
     min-height: 80vh;
+    opacity: 0;
+    transition: opacity 1s;
 }
 
 
@@ -89,12 +91,17 @@ section {
 }
 
 /* Header Styles */
-.page__header {
+.page__header, .page__header:hover {
     background-color: khaki;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 5;
+    transition: top 0.75s;
+}
+
+.page__header.notscroll{
+    top: -100px;
 }
 
 /* Footer Styles */
@@ -132,6 +139,8 @@ section:nth-of-type(even) .landing__container {
 /* Background Circles */
 /* Note that background circles are created with psuedo elements before and after */
 /* Circles appear to be random do to use of :nth-of-type psuedo class */
+/*
+Removed by me
 section:nth-of-type(odd) .landing__container::before {
     content: '';
     background: rgba(255, 255, 255, 0.187);
@@ -188,6 +197,7 @@ section:nth-of-type(3n + 1) .landing__container::after {
     opacity: 0;
     transition: ease 0.5s all;
 }
+*/
 
 
 /* ---- Theme State Rules ---- */
@@ -196,8 +206,11 @@ section:nth-of-type(3n + 1) .landing__container::after {
 section.inViewport {
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+    opacity: 1;
 }
 
+/*
+removed by me
 section.inViewport .landing__container::before {
     opacity: 1;
     animation: rotate 4s linear 0s infinite forwards;
@@ -207,6 +220,7 @@ section.inViewport .landing__container::after {
     opacity: 1;
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
+*/
 
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
