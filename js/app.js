@@ -19,14 +19,12 @@
 */
 // find navbar__List and assign it to navList
 const navList = document.querySelector('#navbar__list');
-//console.log(navList);
+
 //find all the section(s) with lots of info and assign to navSection
 const navSection = document.getElementsByTagName('section');
-//console.log(navSection);
+
 //const myFragment = document.createDocumentFragment();
 
-//console.log(navList)
-//console.log(navSection)
 
 /**
  * End Global Variables
@@ -54,31 +52,27 @@ for (let i = 0; i < navSection.length; i++) {
     //console.log(navSection.section2);
     // discover section(s) info and assign to eachSection
     const eachSection = navSection[i];
-    //console.log(eachSection);
+
     // get the section names
     const linkName = (eachSection.querySelector('h2')).textContent;
-    //console.log(linkName);
+ 
     // build the anchor tag
     const linkAnchor = document.createElement('a');
-    //console.log(linkAnchor);
+
     // discover each anchor url
     linkAnchor.href = `#${eachSection.id}`;
-    //console.log(linkAnchor.href);
+ 
     // give the hyperlinks a name
     linkAnchor.textContent = linkName;
-    //console.log(linkAnchor.textContent);
+ 
     // build the unordered list
     const newList = document.createElement('li');
-    //console.log(newList);
+ 
     // build and append the anchor(s)
     newList.appendChild(linkAnchor);
-    //console.log(linkAnchor);
-    //console.log(newList);
-    //console.log(navList);
+
     navList.appendChild(newList);
-    //console.log(newList);
-    //console.log(linkAnchor);
-    //console.log(navList);
+
     // add the scroll function
     linkAnchor.addEventListener('click', addScroll );
 }
@@ -91,18 +85,17 @@ function addScroll(event){
     console.log(event);
     // get the anchor clicked on
     let a = event.target;
-    //console.log(a);
+
     // get the href of the anchor
     let href = a.getAttribute('href');
-    //console.log(href);
-    //console.log(href);
+
     // get the section from the href
     let section = document.querySelector(href);
-    //console.log(section);
+
     // get the top of that section href.section
-    //console.log(section);
+
     let scrollTop = section.offsetTop;
-    //console.log(sectionTop);
+;
     scrollTo({
         top: scrollTop,
         behavior: 'smooth'
