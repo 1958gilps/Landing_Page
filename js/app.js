@@ -46,7 +46,6 @@ for (let i = 0; i < navSection.length; i++) {
     console.log(navSection[i].id);
     // discover section(s) info and assign to eachSection
     const eachSection = navSection[i];
-    //console.log(eachSection);
     // get the section names
     const linkName = (eachSection.querySelector('h2')).textContent;
     // build the anchor tag
@@ -103,9 +102,8 @@ const navbarHighlight = () => {
     for (let i=0; i<links.length; i++){
         // get current li from loop
         let link = links[i];
-        console.log(link.textContent);
         // add classList to each li?
-        link.classList.add('groundControl');
+        link.classList.add(navSection[i].id);
     }
 };
 
@@ -130,7 +128,7 @@ const sectionsInViewport = () => {
 
 // listen for scroll events and call sectionsInViewport function
 window.addEventListener("scroll", sectionsInViewport);
-//window.addEventListener("scroll", navbarHighlight);
+window.addEventListener("scroll", navbarHighlight);
 //window.addEventListener("scroll", showHideNavigation);
 
 /*
