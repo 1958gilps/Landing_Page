@@ -19,19 +19,14 @@
 */
 // find navbar__List and assign it to navList
 const navList = document.querySelector('#navbar__list');
-
 //find all the section(s) with lots of info and assign to navSection
 const navSection = document.getElementsByTagName('section');
-
 //const myFragment = document.createDocumentFragment();
-
-
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
-
 function elementInViewport(element){
 	// if element is currently on screen, return true
   	// if it isn't, return false
@@ -39,7 +34,6 @@ function elementInViewport(element){
           viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
     return !(rect.bottom < 0 || rect.top > viewHeight);
 }
-
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -49,51 +43,38 @@ function elementInViewport(element){
 // build the nav
     // discover how many sections
 for (let i = 0; i < navSection.length; i++) {
-    //console.log(navSection.section2);
+    console.log(navSection[i].id);
     // discover section(s) info and assign to eachSection
     const eachSection = navSection[i];
-
+    //console.log(eachSection);
     // get the section names
     const linkName = (eachSection.querySelector('h2')).textContent;
- 
     // build the anchor tag
     const linkAnchor = document.createElement('a');
-
     // discover each anchor url
     linkAnchor.href = `#${eachSection.id}`;
- 
     // give the hyperlinks a name
     linkAnchor.textContent = linkName;
- 
     // build the unordered list
     const newList = document.createElement('li');
- 
     // build and append the anchor(s)
     newList.appendChild(linkAnchor);
-
     navList.appendChild(newList);
-
     // add the scroll function
     linkAnchor.addEventListener('click', addScroll );
 }
 // Add class 'active' to section when near top of viewport
 
-
 // Scroll to anchor ID using scrollTO event
 function addScroll(event){
     event.preventDefault();
-    console.log(event);
     // get the anchor clicked on
     let a = event.target;
-
     // get the href of the anchor
     let href = a.getAttribute('href');
-
     // get the section from the href
     let section = document.querySelector(href);
-
     // get the top of that section href.section
-
     let scrollTop = section.offsetTop;
 ;
     scrollTo({
@@ -101,13 +82,6 @@ function addScroll(event){
         behavior: 'smooth'
     })
 }
-
-
-
-//kg 3-1-2020
-// highlight current tab
-
-
 /**
  * End Main Functions
  * Begin Events
@@ -122,10 +96,19 @@ function addScroll(event){
 
 // highlight navbar
 
+const navbarHighlight = () => {
+    // get all links
+    const links = document.querySelectorAll("li");
+  // loop through each li, one at a time
+    for (let i=0; i<links.length; i++){
+        // get current li from loop
+        let link = links[i];
+        console.log(link.textContent);
+        // add classList to each li?
+        link.classList.add('groundControl');
+    }
+};
 
-
-// use line 98 or 99 but not both...
-// function sectionsInViewport(){
 const sectionsInViewport = () => {
   	// get all sections
   	const sections = document.querySelectorAll("section");
@@ -136,18 +119,21 @@ const sectionsInViewport = () => {
       	// is section in viewport?
       	if (elementInViewport(section)){
             // section is in viewport, add "active" class to it (using classlist)
-          	section.classList.add("inViewport");
+            section.classList.add("inViewport");
         }
       	else {
             // section is NOT in viewport, remove "active" class to it (using classlist)
-          	section.classList.remove("inViewport");
+            section.classList.remove("inViewport");
         }
     }
 };
 
 // listen for scroll events and call sectionsInViewport function
 window.addEventListener("scroll", sectionsInViewport);
-window.addEventListener("scroll", showHideNavigation);
+//window.addEventListener("scroll", navbarHighlight);
+//window.addEventListener("scroll", showHideNavigation);
+
+/*
 window.addEventListener("click", showHideNavigation);
 
 let debouncer;
@@ -159,3 +145,4 @@ function showHideNavigation(){
         header.classList.add('notscroll');
     }, 20000);
 }
+*/

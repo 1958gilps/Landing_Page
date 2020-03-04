@@ -92,8 +92,8 @@ section {
 /* my stuff */
 
 a:active {
-    background-color: indigo;
-    }
+    background-color: lightskyblue;
+}
 
 a {
     padding: 4px 5px 0;
@@ -101,7 +101,7 @@ a {
 
 /* Header Styles */
 .page__header, .page__header:hover {
-    background-color: khaki;
+    background-color: lightskyblue;
     position: fixed;
     top: 0;
     width: 100%;
@@ -215,8 +215,13 @@ section:nth-of-type(3n + 1) .landing__container::after {
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
 section.inViewport {
     background: rgb(0, 0, 0);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(0deg, rgba(129, 95, 95, 5.0) 0%, rgba(0, 0, 0, 0) 100%);
     opacity: 1;
+}
+
+ li.navHighlight {
+     background-color: #fff;
+     opacity: 1;
 }
 
 /*
