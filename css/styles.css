@@ -76,7 +76,7 @@ section {
 }
 
 .navbar__menu .menu__link {
-    display: block;
+    display: inline-block;
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
@@ -84,7 +84,7 @@ section {
 }
 
 .navbar__menu .menu__link:hover {
-    background: rgb(247, 218, 138);
+    background: rgb(180, 199, 235);
     color: #fff;
     transition: ease 0.3s all;
 }
@@ -149,8 +149,7 @@ section:nth-of-type(even) .landing__container {
 /* Background Circles */
 /* Note that background circles are created with psuedo elements before and after */
 /* Circles appear to be random do to use of :nth-of-type psuedo class */
-/*
-Removed by me
+
 section:nth-of-type(odd) .landing__container::before {
     content: '';
     background: rgba(255, 255, 255, 0.187);
@@ -207,8 +206,6 @@ section:nth-of-type(3n + 1) .landing__container::after {
     opacity: 0;
     transition: ease 0.5s all;
 }
-*/
-
 
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
@@ -220,7 +217,7 @@ section.inViewport {
 }
 
  li.navHighlight {
-     background-color: #fff;
+     background-color: rgb(44, 30, 167);
      opacity: 1;
 }
 
